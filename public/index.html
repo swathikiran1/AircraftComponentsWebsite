@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/img/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;500;600;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/img/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+    <script type="text/javascript">
+      // hide HRM logs because they're distracting
+      // prettier-ignore
+      const log = console.log;
+      // prettier-ignore
+      console.log = (...args) =>
+        args[0]?.includes?.('[HMR]') ? null : log(...args);
+    </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>fipart - Aviation Parts Marketplace</title>
+    <meta
+      name="description"
+      content="Buy and sell aircraft parts online. Build your own Supplier Shop. Search millions of aircraft parts and capabilities from suppliers all over the world."
+    />
+    <link
+      rel="shortcut icon"
+      href="img/layout/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- CSS -->
+    <link href="library/bootstrap-fuelux/css/fuelux.min.css" rel="stylesheet" />
+    <link href="css/fipart.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+      var $zoho = $zoho || {salesiq: {values: {}, ready: function () {}}}
+      var d = document
+      s = d.createElement('script')
+      s.type = 'text/javascript'
+      s.defer = true
+      s.src =
+        'https://salesiq.zoho.com/fipartgmbh/float.ls?embedname=fipartgmbh'
+      t = d.getElementsByTagName('script')[0]
+      t.parentNode.insertBefore(s, t)
+    </script>
+
+    <script>
+      $zoho.salesiq.ready = function (embedinfo) {
+        $zoho.salesiq.chat.title('')
+      }
+    </script>
+    <script type="text/javascript">
+      pathPrefix = ''
+    </script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script src="library/jquery.1.10.2.min.js"></script>
+    <script src="js/fipart.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script>
+      $('.addToCart').change(function () {
+        populateCartTemp()
+      })
+
+      $('#select-all').change(function () {
+        populateCartTemp()
+      })
+
+      function populateCartTemp() {
+        var partIds = ''
+        $('.addToCart').each(function () {
+          if (this.checked) {
+            partIds += $(this).val() + ','
+          }
+        })
+        $('#rfqPardIDs').val('')
+        $('#rfqPardIDs').val(partIds)
+      }
+
+      $(document).ready(function () {
+        $('.form_submit').change(function () {
+          $('.submit_button').click()
+        })
+      })
+
+      $(document).ready(function () {
+        $('.form_submit2').change(function () {
+          $('.submit_button2').click()
+        })
+      })
+    </script>
+
+    <!--    <script src="js/twitter-bootstrap-hover-dropdown.min.js"></script>
+    <script src="js/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/rowlink.js"></script>
+    <script src="js/jquery.tablesorter.min.js"></script>
+    <script src="js/bootstrap-validator.min.js"></script>
+    <script src="js/fipart-validate.js"></script>
+  -->
+
+    <!-- FOR CUSTOMERS // https://github.com/patrickkunka/mixitup LICENCE NEEDED!!!! -->
+    <!--<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $(function(){
+    $('#iso-logo-container').mixItUp();
+  });
+
+  $('.datepicker-rfq-quote').datepicker({
+    autoclose: true,
+    startDate: '+1d',
+    todayHighlight: true
+  });
+
+
+});
+</script>
+-->
+    <script src="js/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('.start-blue-numbers-box').matchHeight({property: 'min-height'})
+      })
+    </script>
+    <script>
+      var originalLeave = $.fn.popover.Constructor.prototype.leave
+      $.fn.popover.Constructor.prototype.leave = function (obj) {
+        var self =
+          obj instanceof this.constructor
+            ? obj
+            : $(obj.currentTarget)
+                [this.type](this.getDelegateOptions())
+                .data('bs.' + this.type)
+        var container, timeout
+
+        originalLeave.call(this, obj)
+
+        if (obj.currentTarget) {
+          container = $(obj.currentTarget).siblings('.popover')
+          timeout = self.timeout
+          container.one('mouseenter', function () {
+            //We entered the actual popover � call off the dogs
+            clearTimeout(timeout)
+            //Let's monitor popover content instead
+            container.one('mouseleave', function () {
+              $.fn.popover.Constructor.prototype.leave.call(self, self)
+            })
+          })
+        }
+      }
+
+      $('.fa-lock').popover({
+        delay: {show: 100, hide: 1500},
+        trigger: 'hover focus',
+        title: 'This is a PROFESSIONAL feature',
+        content:
+          '<div>Upgrading your membership enables you to enhance your visibility on the market. Additional features for both suppliers and buyers provide all the tools for successfully trading with parts online.<br/><a href="about/pricing" class="pull-right btn btn-primary">Upgrade</a><br/><br/></div>',
+        template:
+          '<div class="popover" style="min-width:260px;line-height:20px;border:0;padding:0;" role="tooltip"><div class="arrow"></div><h3 style="background-color:#1F3852;color:#fff;padding:15px;" class="popover-title"></h3><div class="popover-content"></div></div>',
+        html: true,
+        placement: function (context, source) {
+          var position = $(source).position()
+
+          if (position.left < 280) {
+            return 'right'
+          }
+
+          if (position.top < 280) {
+            return 'bottom'
+          } else {
+            return 'left'
+          }
+        },
+      })
+
+      $('#partsmultiple').keyup(function () {
+        var text = $('#partsmultiple').val()
+        var match = /\r|\n/.exec(text)
+        var match2 = /,/.exec(text)
+        if (match || match2) $('#partstitle').prop('disabled', true)
+        else $('#partstitle').prop('disabled', false)
+      })
+
+      $('#capsmultiple').keyup(function () {
+        var text = $('#capsmultiple').val()
+        var match = /\r|\n/.exec(text)
+        var match2 = /,/.exec(text)
+        if (match || match2) $('#capstitle').prop('disabled', true)
+        else $('#capstitle').prop('disabled', false)
+      })
+    </script>
+
+    <script>
+      var gaProperty = 'UA-17228458-1'
+      var disableStr = 'ga-disable-' + gaProperty
+      if (document.cookie.indexOf(disableStr + '=true') > -1) {
+        window[disableStr] = true
+      }
+      function gaOptout() {
+        document.cookie =
+          disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/'
+        window[disableStr] = true
+        alert(
+          'Google Analytics is now deactivated in this browser for this website.',
+        )
+      }
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-17228458-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'UA-17228458-1', {anonymize_ip: true})
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.fipart.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.fipart.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <script
+      type="text/javascript"
+      charset="UTF-8"
+      src="//cookie-script.com/s/5e39174fc52151f01d901b056903da71.js"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
